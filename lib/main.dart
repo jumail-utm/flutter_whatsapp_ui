@@ -47,6 +47,20 @@ class Home extends StatelessWidget {
           onPressed: _doNothing,
           child: Icon(Icons.add),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 1,
+          backgroundColor: Colors.pink,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              title: Text('Friends'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.nature_people),
+              title: Text('Pending'),
+            ),
+          ],
+        ),
       ),
     );
   }
