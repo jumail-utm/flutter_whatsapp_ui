@@ -25,34 +25,21 @@ class Home extends StatelessWidget {
           ),
           title: Text('Whatsapp'),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: _doNothing,
-            ),
-            IconButton(
-              icon: Icon(Icons.message),
-              onPressed: _doNothing,
-            ),
-            IconButton(
-              icon: Icon(Icons.more_vert),
-              onPressed: _doNothing,
-            ),
+            IconButton(icon: Icon(Icons.search), onPressed: _doNothing),
+            IconButton(icon: Icon(Icons.message), onPressed: _doNothing),
+            IconButton(icon: Icon(Icons.more_vert), onPressed: _doNothing),
           ],
           bottom: TabBar(tabs: [
-            Tab(
-              text: 'CALLS',
-              icon: Icon(Icons.call),
-            ),
-            Tab(
-              text: 'CHATS',
-              icon: Icon(Icons.chat),
-            ),
-            Tab(
-              text: 'CONTACTS',
-              icon: Icon(Icons.contacts),
-            ),
+            Tab(text: 'CALLS', icon: Icon(Icons.call)),
+            Tab(text: 'CHATS', icon: Icon(Icons.chat)),
+            Tab(text: 'CONTACTS', icon: Icon(Icons.contacts)),
           ]),
         ),
+        body: TabBarView(children: [
+          Container(color: Colors.pink, child: Center(child: Text('Calls Tab'))),
+          Container(color: Colors.white, child: Center(child: Text('Chats Tab'))),
+          Container(color: Colors.amber, child: Center(child: Text('Contact Tab'))),
+        ]),
       ),
     );
   }
