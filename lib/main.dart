@@ -36,11 +36,19 @@ class Home extends StatelessWidget {
           ]),
         ),
         body: TabBarView(children: [
-          Container(color: Colors.pink, child: Center(child: Text('Calls Tab'))),
-          Container(color: Colors.white, child: Center(child: Text('Chats Tab'))),
-          Container(color: Colors.amber, child: Center(child: Text('Contact Tab'))),
+          Container(
+              color: Colors.pink, child: Center(child: Text('Calls Tab'))),
+          Container(
+              color: Colors.white, child: Center(child: Text('Chats Tab'))),
+          Container(
+              color: Colors.amber, child: Center(child: Text('Contact Tab'))),
         ]),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _doNothing,
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
 }
+
