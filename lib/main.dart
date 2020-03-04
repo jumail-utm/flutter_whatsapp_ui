@@ -10,59 +10,53 @@ void main() => runApp(
     );
 
 class Home extends StatelessWidget {
-  void _doNothing() {}
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       initialIndex: 1,
       child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: _doNothing,
-          ),
-          title: Text('Whatsapp'),
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.search), onPressed: _doNothing),
-            IconButton(icon: Icon(Icons.message), onPressed: _doNothing),
-            IconButton(icon: Icon(Icons.more_vert), onPressed: _doNothing),
-          ],
-          bottom: TabBar(tabs: [
-            Tab(text: 'CALLS', icon: Icon(Icons.call)),
-            Tab(text: 'CHATS', icon: Icon(Icons.chat)),
-            Tab(text: 'CONTACTS', icon: Icon(Icons.contacts)),
-          ]),
-        ),
-        body: TabBarView(children: [
-          Container(
-              color: Colors.pink, child: Center(child: Text('Calls Tab'))),
-          Container(
-              color: Colors.white, child: Center(child: Text('Chats Tab'))),
-          Container(
-              color: Colors.amber, child: Center(child: Text('Contact Tab'))),
-        ]),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _doNothing,
-          child: Icon(Icons.add),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 1,
-          backgroundColor: Colors.pink,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.people),
-              title: Text('Friends'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.nature_people),
-              title: Text('Pending'),
-            ),
-          ],
-        ),
+        appBar: _buildAppBar(),
+        body: _buildTabBarView(),
+        floatingActionButton: _buildFloatingActionButton(),
       ),
     );
   }
+} // class Home
+
+void _doNothing() {}
+
+AppBar _buildAppBar() {
+  return AppBar(
+    leading: IconButton(
+      icon: Icon(Icons.menu),
+      onPressed: _doNothing,
+    ),
+    title: Text('Whatsapp'),
+    actions: <Widget>[
+      IconButton(icon: Icon(Icons.search), onPressed: _doNothing),
+      IconButton(icon: Icon(Icons.message), onPressed: _doNothing),
+      IconButton(icon: Icon(Icons.more_vert), onPressed: _doNothing),
+    ],
+    bottom: TabBar(tabs: [
+      Tab(text: 'CALLS', icon: Icon(Icons.call)),
+      Tab(text: 'CHATS', icon: Icon(Icons.chat)),
+      Tab(text: 'CONTACTS', icon: Icon(Icons.contacts)),
+    ]),
+  );
 }
 
+TabBarView _buildTabBarView() {
+  return TabBarView(children: [
+    Container(color: Colors.pink, child: Center(child: Text('Calls Tab'))),
+    Container(color: Colors.white, child: Center(child: Text('Chats Tab'))),
+    Container(color: Colors.amber, child: Center(child: Text('Contact Tab'))),
+  ]);
+}
+
+FloatingActionButton _buildFloatingActionButton() {
+  return FloatingActionButton(
+    onPressed: _doNothing,
+    child: Icon(Icons.add),
+  );
+}
