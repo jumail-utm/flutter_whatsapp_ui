@@ -71,6 +71,11 @@ class _ChatsTabView extends StatelessWidget {
         title: Text(items[index]),
         subtitle: Text('Subtitle ${index + 1}'),
         trailing: Icon(Icons.more_horiz),
+        onLongPress: () => Scaffold.of(context).showSnackBar(SnackBar(
+          duration: Duration(seconds: 5),
+          backgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
+          content: Text('Item ${items[index]} has been long pressed'),
+        )),
       ),
     );
   }
