@@ -47,11 +47,33 @@ AppBar _buildAppBar() {
 }
 
 TabBarView _buildTabBarView() {
+  final chats = List<String>.generate(10, (i) => 'Chat message #${i + 1}');
+
   return TabBarView(children: [
     Container(color: Colors.pink, child: Center(child: Text('Calls Tab'))),
-    Container(color: Colors.white, child: Center(child: Text('Chats Tab'))),
+    _ChatsTabView(chats),
     Container(color: Colors.amber, child: Center(child: Text('Contact Tab'))),
   ]);
+}
+
+class _ChatsTabView extends StatelessWidget {
+  final List items;
+
+  _ChatsTabView(this.items);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      itemCount: items.length,
+      separatorBuilder: (context, index) => Divider(),
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.chat),
+        title: Text(items[index]),
+        subtitle: Text('Subtitle ${index + 1}'),
+        trailing: Icon(Icons.more_horiz),
+      ),
+    );
+  }
 }
 
 FloatingActionButton _buildFloatingActionButton() {
